@@ -1,0 +1,13 @@
+<footer>
+    <div class="footer-content">
+      <p>{{ copyrightText }}</p>
+
+      <nav *ngIf="links.length > 0">
+        <ul>
+          <li *ngFor="let link of links">
+            <a [routerLink]="link.url">{{ link.label }}</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </footer>

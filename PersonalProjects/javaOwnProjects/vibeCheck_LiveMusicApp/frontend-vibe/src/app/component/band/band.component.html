@@ -1,0 +1,31 @@
+<div class="band-container">
+  <h2>{{ bandName }}</h2>
+
+  <div class="band-details">
+    <section class="songs">
+      <h3>Songs</h3>
+      <app-song-list></app-song-list>
+    </section>
+
+    <section class="albums">
+      <h3>Albums</h3>
+      <ul>
+        <li *ngFor="let album of albums">{{ album.name }}</li>
+      </ul>
+    </section>
+
+    <section class="shows">
+      <h3>Upcoming Shows</h3>
+      <ul>
+        <li *ngFor="let show of shows">{{ show.date | date }} at {{ show.venue }}</li>
+      </ul>
+    </section>
+
+    <section class="comments">
+      <h3>Comments</h3>
+      <ul>
+        <li *ngFor="let comment of comments">{{ comment.author }}: {{ comment.content }}</li>
+      </ul>
+    </section>
+  </div>
+</div>

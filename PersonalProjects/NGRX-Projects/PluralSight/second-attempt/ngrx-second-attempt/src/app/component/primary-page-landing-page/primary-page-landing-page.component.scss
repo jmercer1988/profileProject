@@ -1,0 +1,16 @@
+.landing-page-btn-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    margin: 5px;
+
+    p {
+        font-size: 2rem;
+    }
+    
+    app-button {
+        padding: 10px;
+    }
+}

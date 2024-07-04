@@ -1,0 +1,28 @@
+.band-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  margin: 0 auto;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.band-details section {
+  margin-top: 20px;
+}
+
+.band-details h3 {
+  margin-bottom: 10px;
+}
+
+.band-details ul {
+  list-style: none;
+  padding: 0;
+}
+
+.band-details li {
+  margin-bottom: 5px;
+  font-size: 14px;
+}

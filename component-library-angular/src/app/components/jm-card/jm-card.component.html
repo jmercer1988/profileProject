@@ -1,0 +1,13 @@
+<div class="card">
+    <ng-container *ngIf="title">
+      <h2 class="card-title">{{ title }}</h2>
+    </ng-container>
+
+    <div class="card-content" [innerHTML]="content"></div>
+
+    <img *ngIf="imageUrl" [src]="imageUrl" alt="Card Image" class="card-image">
+
+    <div class="card-actions" *ngIf="actions.length > 0">
+      <button *ngFor="let action of actions" (click)="action.click.emit()">{{ action.label }}</button>
+    </div>
+  </div>

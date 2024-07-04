@@ -1,0 +1,14 @@
+<ng-select 
+  [items]="options"
+  bindLabel="label"
+  bindValue="value"
+  [placeholder]="placeholder"
+  [formControl]="control"
+  [multiple]="multipleSelection"
+  (change)="onOptionSelected($event)"
+>
+</ng-select>
+
+<div *ngIf="selectedOptionLabel" class="selected-option">
+  Selected Option: {{ selectedOptionLabel }}
+</div>

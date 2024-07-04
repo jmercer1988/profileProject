@@ -1,0 +1,43 @@
+/* General header styles */
+header {
+    background-color: #f0f0f0; /* Light gray background */
+    padding: 1rem;
+    display: flex; /* Use Flexbox for easy alignment */
+    align-items: center; /* Vertically align items */
+  }
+  
+  /* Logo styles */
+  .logo {
+    max-height: 50px; /* Adjust the maximum logo height as needed */
+    margin-right: 1rem; /* Add some space between the logo and the title */
+  }
+  
+  /* Title styles */
+  h1 {
+    font-size: 1.5rem;
+    margin: 0;
+  }
+  
+  /* Navigation styles */
+  nav ul {
+    list-style: none; /* Remove default list bullet points */
+    margin: 0;
+    padding: 0;
+    display: flex; /* Arrange links horizontally */
+  }
+  
+  nav li {
+    margin-left: 1rem; /* Add space between links */
+  }
+  
+  nav a {
+    text-decoration: none; /* Remove default link underline */
+    color: #333; /* Dark gray link color */
+  }
+  
+  /* Active link styles */
+  nav a.active {
+    font-weight: bold; /* Make active link bold */
+    color: #007bff; /* Blue active link color */
+  }
+  

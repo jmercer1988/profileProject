@@ -1,0 +1,7 @@
+<div class="landing-page-btn-container">
+    <h2>Number Counter: </h2>
+    <p> {{ (count$ | async) }}</p>
+    <app-button (click)="increment()" [buttonText]="'Increment +'"></app-button>
+    <app-button (click)="decrement()" [buttonText]="'Decrement +'"></app-button>
+</div>
+

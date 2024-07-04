@@ -1,0 +1,20 @@
+<div class="input-field-container">
+    <label for="inputField" *ngIf="label">{{ label }}</label> 
+    <div class="input-field-wrapper">
+      <input 
+        [type]="type" 
+        [id]="inputField" 
+        [placeholder]="placeholder" 
+        [formControl]="control"
+        (input)="onValueChange($event)"
+        class="input-field"
+      >
+      <span class="input-icon" *ngIf="icon">
+        <i class="material-icons">{{ icon }}</i> 
+      </span>
+    </div>
+  
+    <div class="error-message" *ngIf="isInvalid">
+      {{ errorMessage || control.errors  }} 
+    </div>
+  </div>
