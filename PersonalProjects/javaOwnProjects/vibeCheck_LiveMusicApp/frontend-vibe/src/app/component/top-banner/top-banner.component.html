@@ -1,0 +1,11 @@
+<div class="banner">
+  <img class="banner-image" [src]="bandImage" alt="Band Image">
+  <div class="banner-info">
+    <h1 class="band-name">{{ bandName }}</h1>
+    <p class="band-bio">{{ bandBio }}</p>
+    <span class="band-hometown">{{ bandHometown }}</span>
+  </div>
+  <div class="button-container">
+    <!--<div *ngIf="">--><vc-button [buttonText]="'login'" (buttonClick)="handleButtonClick()"></vc-button><!--</div>-->
+  </div>
+</div>

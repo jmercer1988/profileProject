@@ -1,0 +1,19 @@
+.user-profile {
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+
+  .profile-info {
+    margin-bottom: 20px;
+  }
+
+  .followed-bands {
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      margin-bottom: 5px;
+    }
+  }
+}

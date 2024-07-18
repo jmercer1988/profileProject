@@ -1,0 +1,18 @@
+<app-header></app-header> 
+
+<main>
+  <section>
+    <h2>Latest News</h2>
+    <div *ngIf="(news$ | async)?.length > 0; else noArticles">
+      <div *ngFor="let article of (news$ | async)">
+        <h2>{{ article.title }}</h2>
+        <p>{{ article.description }}</p>
+        <!-- additional article details -->
+      </div>
+    </div>
+    <ng-template #noArticles>
+      <p>No articles found.</p>
+    </ng-template>
+
+  </section>
+</main>

@@ -1,0 +1,14 @@
+<div class="user-profile">
+  <h2>User Profile</h2>
+  <div class="profile-info">
+    <p><strong>Username:</strong> {{ user.username }}</p>
+    <p><strong>Email:</strong> {{ user.email }}</p>
+    <!-- Add more user fields as needed -->
+  </div>
+  <div class="followed-bands">
+    <h3>Followed Bands</h3>
+    <ul>
+      <li *ngFor="let band of followedBands">{{ band.name }}</li>
+    </ul>
+  </div>
+</div>

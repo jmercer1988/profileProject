@@ -1,0 +1,52 @@
+// Variables
+$input-height: 40px;
+$border-color: #ccc;
+$border-radius: 4px;
+$error-color: #f44336;
+
+// Mixins
+@mixin input-field-base {
+  height: $input-height;
+  padding: 0 10px;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  outline: none;
+}
+
+// Component Styles
+.input-field-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px; // Optional spacing between fields
+
+  label {
+    margin-bottom: 5px;
+  }
+
+  .input-field-wrapper {
+    display: flex;
+    align-items: center;
+    position: relative; // For icon positioning
+
+    .input-field {
+      @include input-field-base;
+      width: 100%;
+
+      &:focus {
+        border-color: #2196f3; // Blue on focus
+      }
+    }
+
+    .input-icon {
+      position: absolute;
+      right: 10px; 
+      color: #757575; // Adjust icon color as needed
+    }
+  }
+
+  .error-message {
+    color: $error-color;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+}

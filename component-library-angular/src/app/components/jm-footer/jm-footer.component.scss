@@ -1,0 +1,31 @@
+/* General footer styles */
+footer {
+    background-color: #f0f0f0; /* Light gray background */
+    padding: 1rem;
+    text-align: center; /* Center align text */
+  }
+  
+  /* Footer content wrapper */
+  .footer-content {
+    display: flex;
+    justify-content: space-between; /* Space out content */
+    align-items: center;
+  }
+  
+  /* Navigation styles */
+  footer nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  footer nav li {
+    margin-left: 1rem;
+  }
+  
+  footer nav a {
+    text-decoration: none;
+    color: #333; /* Dark gray link color */
+  }
+  

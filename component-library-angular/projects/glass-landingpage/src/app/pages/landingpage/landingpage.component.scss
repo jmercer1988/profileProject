@@ -1,0 +1,82 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: sans-serif;
+    display: flex; 
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  .spacer-top {
+    margin-bottom: 5vh;
+    margin-top: 5vh;
+  }
+  
+  /* Hero Section */
+  .hero {
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center; 
+    background: url('https://t3.ftcdn.net/jpg/07/36/10/68/360_F_736106897_wkNZCCPkzzbsPu0OzP2OWjqGFlC8sqFL.jpg') center/cover no-repeat; 
+    color: white;
+    text-align: center; 
+    padding: 4rem 2rem; 
+    flex: 1; 
+  }
+  
+  .hero-content {
+    max-width: 900px; 
+    max-height: 100vh;
+    min-height: 100vh;
+  }
+  
+  /* Subscription Card (Glassmorphism) */
+  .subscription-card {
+    background: linear-gradient(145deg, rgba(225, 225, 225, 0.3), rgba(0, 0, 0, 0.3)); /* Make background more transparent */
+    backdrop-filter: blur(20px); 
+    padding: 2.5rem;
+    border-radius: 15px; 
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3); 
+  }
+  
+  .subscription-card h2 {
+    margin-bottom: 1.5rem;
+    font-size: 2.5rem;
+    color: #fff; 
+  }
+  
+  .subscription-card input,
+  .subscription-card button {
+    padding: 1rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem; /* Larger font size for better readability */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for input and button */
+  }
+  
+  .subscription-card input {
+    width: calc(100% - 2rem); /* Full width with padding adjustment */
+    margin-bottom: 1rem; /* Add space between input and button */
+    background-color: rgba(255, 255, 255, 0.1); /* Light background for input */
+    color: white; /* White text color for input */
+  }
+  
+  .subscription-card button {
+    background-color: #007bff; /* Blue button */
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Smooth transition on hover */
+  }
+  
+  .subscription-card button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+  
+  /* Add media queries for responsive adjustments if needed */
+  

@@ -1,0 +1,281 @@
+
+interface String {
+    toJadenCase(): string;
+  }
+// Strings to uppercase:
+String.prototype.toJadenCase = function () {
+    return this.replace(/(?<=\s|^)./g, (m) => m.toUpperCase())
+};
+
+
+
+// Example 2:
+String.prototype.toJadenCase = function () {
+    return this.split(' ').map(word => word[0].toUpperCase() + word.slice(1)).join(' ');
+   };
+
+// isIsogram
+/* 
+This function checks if a given string is an isogram. An isogram is a word or phrase 
+that has no repeating letters, regardless of case. Empty strings are considered isograms.
+*/
+
+function isIsogram(str) {
+    const seen = new Set();
+  
+    for (const char of str.toLowerCase()) {
+      if (/[a-z]/.test(char) && seen.has(char)) { 
+        return false;
+      }
+      seen.add(char);
+    }
+  
+    return true;
+  }
+
+/*
+ * This function finds the integer in an array that appears an odd number of times.
+ * The problem guarantees that there will always be only one such integer.
+ * It utilizes the property of bitwise XOR: numbers appearing in pairs cancel out, 
+ * leaving only the one with an odd frequency.
+ */
+function findOdd(A) {
+  return A.reduce((acc, num) => acc ^ num, 0); // XOR all numbers
+}
+
+/*
+ * This function converts a Roman numeral string to its corresponding decimal integer.
+ * It assumes the Roman numeral is valid and in the modern format.
+ */
+function romanToInt(roman: string): number {
+     const romanMap: { [key: string]: number } = {
+      'I': 1,
+      'V': 5,
+      'X': 10,
+      'L': 50,
+      'C': 100,
+      'D': 500,
+      'M': 1000
+    };
+  
+    let result: number = 0; 
+    let prevValue: number = 0; 
+
+    for (let i = roman.length - 1; i >= 0; i--) {
+      const currentSymbol: string = roman[i]; 
+      const currentValue: number = romanMap[currentSymbol]; 
+  
+     if (currentValue >= prevValue) {
+        result += currentValue;  
+      } else {
+        result -= currentValue; 
+      }
+  
+      prevValue = currentValue;
+    }
+  
+    return result; 
+}
+
+/**
+ * Checks if the elements in array 'b' are the squares of the elements in array 'a',
+ * considering the same multiplicities.
+ *
+ * @param a - An array of numbers (or null).
+ * @param b - An array of numbers (or null).
+ * @returns True if the elements in 'b' are the squares of the elements in 'a', false otherwise.
+ */
+export function comp(a1: number[] | null, a2: number[] | null): boolean {
+    if (!a1 || !a2 || a1.length !== a2.length) return false;
+    
+    const counter = (arr: number[]) => arr.reduce((acc, num) => {
+      acc[num] = (acc[num] || 0) + 1;
+      return acc;
+    }, {} as { [key: number]: number });
+    
+    const counterA1 = counter(a1);
+    const counterA2 = counter(a2);
+    
+    for (const numStr in counterA1) {
+      const num: number = parseInt(numStr, 10);
+      const square: number = num * num;
+      if(!counterA2[square] || counterA2[square] !== counterA1[num]) return false;
+    }
+    
+    return true;
+  }
+
+  /**
+ * Validates a Personal Identification Number (PIN) string.
+ * 
+ * ATM machines allow 4 or 6 digit PIN codes, and PIN codes cannot contain 
+ * anything but exactly 4 digits or exactly 6 digits.
+ * 
+ * @param pin The PIN string to validate.
+ * @returns `true` if the PIN is valid, `false` otherwise.
+ */
+  export class Kata {
+    static validatePin(pin: string): boolean {
+      const isValidLength: boolean = pin.length === 4 || pin.length === 6
+      const isAllDigits: boolean = /^\d+$/.test(pin)
+      
+      return isValidLength && isAllDigits;
+    }
+  }
+/**
+ * Counts the number of set bits (bits equal to 1) in the binary representation of a non-negative integer.
+ * 
+ * This implementation uses Brian Kernighan's algorithm for efficiency.
+ *
+ * @param n The non-negative integer to count the set bits of.
+ * @returns The number of set bits.
+ */
+function countBits(n: number): number {
+    let count = 0;
+    while (n) {
+        n &= (n - 1); // Clear the rightmost set bit
+        count++;
+    }
+    return count;
+}
+
+/**
+ * Generates the display text for who likes a given item.
+ * @param a An array of a of people who like the item.
+ * @returns The display text indicating who likes the item.
+ */
+export const likes = (a : string[]) : string => {
+  
+    switch (a.length) 
+        {
+            case 0: return 'no one likes this';
+            case 1: return `${a[0]} likes this`;
+            case 2: return `${a[0]} and ${a[1]} like this`;
+            case 3: return `${a[0]}, ${a[1]} and ${a[2]} like this`;
+            default: return `${a[0]}, ${a[1]} and ${a.length - 2} others like this`;
+        }
+}
+
+/**
+ * Determines if a string of braces is valid.
+ * 
+ * @param braces A string containing only parentheses, brackets, and curly braces.
+ * @returns True if the braces are validly ordered, false otherwise.
+ */
+function validBraces(braces: string): boolean {
+    const stack: string[] = [];
+    const matchingPairs: { [key: string]: string } = { ')': '(', ']': '[', '}': '{' };
+  
+    for (const brace of braces) {
+      if (matchingPairs[brace]) {
+        if (!stack.length || stack.pop() !== matchingPairs[brace]) {
+          return false; 
+        }
+      } else {
+        stack.push(brace);
+      }
+    }
+  
+    return !stack.length;
+  }
+
+  /**
+ * Generates an N x N multiplication table.
+ *
+ * @param size The dimension (number of rows and columns) of the table.
+ * @returns A two-dimensional array representing the multiplication table.
+ */
+function multiplicationTable(size: number): number[][] {
+    return Array.from({ length: size }, (_, i) =>
+      Array.from({ length: size }, (_, j) => (i + 1) * (j + 1))
+    );
+  }
+
+// clearn alternative
+export function multiplicationTableB (size: number): number[][] {
+    return [...Array(size)].map((_, i) => [...Array(size)].map((_, j) => (i + 1) * (j + 1)))
+  }
+
+  /**
+ * Finds two consecutive Fibonacci numbers whose product is equal to or just above the target product.
+ *
+ * @param prod The target product.
+ * @returns An array [Fn, Fn+1, found], where Fn and Fn+1 are the consecutive Fibonacci numbers,
+ *   and found is true if their product equals prod, false otherwise.
+ */
+function productFib(prod: number): [number, number, boolean] {
+    let [a, b] = [0, 1]; 
+    while (a * b < prod) [a, b] = [b, a + b];
+    return [a, b, a * b === prod];
+  }
+
+/**
+ * Calculates the score for a single roll in the Greed dice game.
+ *
+ * @param dice An array of five integers representing the dice values (1-6).
+ * @returns The score for the roll.
+ */
+export function score(dice: number[]): number {
+    let s = 0, c = [0,0,0,0,0,0], p = [1000, 200, 300, 400, 500, 600], b  = [100,0,0,0,50,0]
+    for (const die of dice) c[die-1]++
+    c.forEach((n,i) => s += +(n>=3)*p[i]+b[i]*(n%3))
+    return s 
+  }
+
+  /**
+ * Converts a hexadecimal color string to an RGB object.
+ *
+ * @param hexString The hexadecimal color string (e.g., "#FF9933").
+ * @returns A Map<String, number> with keys 'r', 'g', 'b' and their corresponding RGB values.
+ */
+function hexToRGB(hexString: string): Map<string, number> {
+    // Remove the hash (#) character if present
+    const cleanHexString = hexString.startsWith('#') ? hexString.slice(1) : hexString;
+  
+    // Extract the red, green, and blue components
+    const r = parseInt(cleanHexString.substring(0, 2), 16);
+    const g = parseInt(cleanHexString.substring(2, 4), 16);
+    const b = parseInt(cleanHexString.substring(4, 6), 16);
+  
+    // Create and return the RGB Map
+    return new Map([
+      ['r', r],
+      ['g', g],
+      ['b', b]
+    ]);
+  }
+
+  /**
+ * Validates an ISBN-10 number.
+ *
+ * This function checks if the provided string represents a valid 10-digit ISBN-10 number according to the standard validation rules:
+ * 
+ * 1. The ISBN must be exactly 10 characters long.
+ * 2. The first 9 characters must be digits (0-9).
+ * 3. The last character can be a digit or the letter 'X' (representing 10).
+ * 4. The weighted sum of the digits, modulo 11, must equal zero.
+ *    - Each digit is multiplied by its position (1 to 10).
+ *
+ * @param isbn The string to be validated as an ISBN-10 number.
+ * @returns `true` if the provided string is a valid ISBN-10 number, `false` otherwise.
+ */
+export function validISBN10(isbn: string): boolean {
+    if (isbn.length !== 10 || !isbn.slice(0, -1).match(/^\d+$/)) {
+      return false;
+    }
+  
+    const digits = isbn.split('').map(char => (char === 'X' ? 10 : parseInt(char, 10)));
+    const checkSum = digits.reduce((sum, digit, index) => sum + digit * (index + 1), 0) % 11;
+  
+    return checkSum === 0;
+  }
+   /**
+    * As Above just refactored
+    */
+
+   const charToVal = (c: string, i: number) => i === 9 && c === 'X' ? 10 : Number(c)
+
+export function ValidISBN10(isbn: string): boolean {
+  if (isbn.length !== 10) return false
+  return isbn.split('').map(charToVal).map((val, i) => val * (i + 1)).reduce((acc, el) => acc + el, 0) % 11 === 0
+}

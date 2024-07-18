@@ -1,0 +1,15 @@
+<header>
+    <img *ngIf="logoUrl" [src]="logoUrl" alt="Logo" class="logo">
+    <h1 *ngIf="title">{{ title }}</h1>
+  
+    <nav>
+      <ul>
+        <li *ngFor="let link of links">
+          <a [routerLink]="link.url" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            {{ link.label }}
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  

@@ -1,0 +1,16 @@
+<div class="header-container">
+  <jm-header
+    [links]="headerLinks"
+    title="Joey's Library"
+    logoUrl=""
+  ></jm-header>
+</div>
+
+<router-outlet></router-outlet>
+
+<div class="footer" style="display: flex; min-height: 100vh; flex-direction: column;">
+  <jm-footer
+    [links]="footerLinks"
+    copyrightText="Joey's library© 2023"
+  ></jm-footer>
+</div>
